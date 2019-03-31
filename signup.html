@@ -1,0 +1,909 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up | The Startup Buddy</title>
+    <meta name="/viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Sign Up | The Startup Buddy">
+    <meta name="description" content="One step away from accessing curated content, specially designed missions and mentors to help you in your startup journey!">
+    <link rel="icon" type="image/png" href="/images/startup_buddy_favicon01.png">
+    <!--webfonts-->
+    <link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" async=""
+        src="https://www.gstatic.com/recaptcha/api2/v1552285980763/recaptcha__en.js"></script>
+    <script async="" src="https://embed.tawk.to/595a0c2550fd5105d0c83a65/default" charset="UTF-8"
+        crossorigin="*"></script>
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--//webfonts-->
+    <script src="/aws/jsbn.js"></script>
+    <script src="/aws/jsbn2.js"></script>
+    <script src="/aws/aws-cognito-sdk.min.js"></script>
+    <script src="/aws/amazon-cognito-identity.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-103246254-4', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src="/aws/awspool-prod.js"></script>
+    <script src="/aws/awshelper.js?20005"></script>
+    <style>
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 15px;
+        }
+
+        ol {
+            list-style-type: decimal;
+            padding: 20px;
+        }
+
+        ul.small {
+            list-style-type: circle;
+            padding: 20px;
+        }
+
+        b {
+            font-weight: bold;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #fff;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Lato;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #0F8454 !important;
+        }
+
+        .navbar .navbar-brand {
+            color: #0F8454 !important;
+        }
+
+        .linksingup a {
+            color: #0F8454 !important;
+            background-color: #fff !important;
+        }
+
+        .linksingup a:hover {
+            color: #fff !important;
+            background-color: #0F8454 !important;
+        }
+
+        .linkdefault a {
+            color: #0F8454 !important;
+            background-color: #fff !important;
+            font-family: Lato;
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 30px;
+            text-align: justify;
+        }
+
+        .linkdefault a:hover {
+            color: #fff !important;
+            background-color: #0F8454 !important;
+        }
+
+        .rectangle-field-short {
+            height: 50px !important;
+            width: 223px !important;
+            border: 4px solid #E7E7EE !important;
+            font-family: Lato;
+        }
+
+        .rectangle-field {
+            height: 50px !important;
+            width: 475px !important;
+            border: 4px solid #E7E7EE !important;
+            font-family: Lato;
+        }
+
+        .rectangle-submit {
+            height: 50px;
+            width: 235px;
+            border: 4px solid #04934C;
+            border-radius: 70px;
+            background-color: #04934C;
+            color: #E7E7EE;
+            font-family: Lato;
+            font-size: 25px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .agree {
+
+            color: #4A4A4A;
+            font-family: Lato;
+            font-size: 12px;
+            line-height: 15px;
+        }
+    </style>
+    <style type="text/css">
+        @keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-moz-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-webkit-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        #YGKP2yC-1553985766720 {
+            outline: none !important;
+            visibility: visible !important;
+            resize: none !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+            background: none !important;
+            opacity: 1 !important;
+            filter: alpha(opacity=100) !important;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity1) !important;
+            -moz-opacity: 1 !important;
+            -khtml-opacity: 1 !important;
+            top: auto !important;
+            right: auto !important;
+            bottom: 0px !important;
+            left: 10px !important;
+            position: fixed !important;
+            border: 0 !important;
+            min-height: 0 !important;
+            min-width: 0 !important;
+            max-height: none !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            -moz-transition-property: none !important;
+            -webkit-transition-property: none !important;
+            -o-transition-property: none !important;
+            transition-property: none !important;
+            transform: none !important;
+            -webkit-transform: none !important;
+            -ms-transform: none !important;
+            width: auto !important;
+            height: auto !important;
+            display: none !important;
+            z-index: 2000000000 !important;
+            background-color: transparent !important;
+            cursor: auto !important;
+            float: none !important;
+            border-radius: unset !important;
+        }
+
+        #tH3uqDl-1553985766722.open {
+            animation: tawkMaxOpen .25s ease !important;
+        }
+    </style>
+    <script async="" src="https://embed.tawk.to/595a0c2550fd5105d0c83a65/default?refresh=true&amp;v=655" charset="UTF-8"
+        crossorigin="*" id="TawkScript-1553994851174"></script>
+    <style type="text/css">
+        @keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-moz-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-webkit-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        #BvpKXvt-1553994852348 {
+            outline: none !important;
+            visibility: visible !important;
+            resize: none !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+            background: none !important;
+            opacity: 1 !important;
+            filter: alpha(opacity=100) !important;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity1) !important;
+            -moz-opacity: 1 !important;
+            -khtml-opacity: 1 !important;
+            top: auto !important;
+            right: auto !important;
+            bottom: 0px !important;
+            left: 10px !important;
+            position: fixed !important;
+            border: 0 !important;
+            min-height: 0 !important;
+            min-width: 0 !important;
+            max-height: none !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            -moz-transition-property: none !important;
+            -webkit-transition-property: none !important;
+            -o-transition-property: none !important;
+            transition-property: none !important;
+            transform: none !important;
+            -webkit-transform: none !important;
+            -ms-transform: none !important;
+            width: auto !important;
+            height: auto !important;
+            display: none !important;
+            z-index: 2000000000 !important;
+            background-color: transparent !important;
+            cursor: auto !important;
+            float: none !important;
+            border-radius: unset !important;
+        }
+
+        #eYtB95y-1553994852349.open {
+            animation: tawkMaxOpen .25s ease !important;
+        }
+    </style>
+    <script async="" src="https://embed.tawk.to/595a0c2550fd5105d0c83a65/default?refresh=true&amp;v=655" charset="UTF-8"
+        crossorigin="*" id="TawkScript-1553997009802"></script>
+    <style type="text/css">
+        @keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-moz-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        @-webkit-keyframes tawkMaxOpen {
+            0% {
+                opacity: 0;
+                transform: translate(0, 30px);
+                ;
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0, 0px);
+            }
+        }
+
+        #ZkyK1It-1553997009867 {
+            outline: none !important;
+            visibility: visible !important;
+            resize: none !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+            background: none !important;
+            opacity: 1 !important;
+            filter: alpha(opacity=100) !important;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity1) !important;
+            -moz-opacity: 1 !important;
+            -khtml-opacity: 1 !important;
+            top: auto !important;
+            right: auto !important;
+            bottom: 0px !important;
+            left: 10px !important;
+            position: fixed !important;
+            border: 0 !important;
+            min-height: 0 !important;
+            min-width: 0 !important;
+            max-height: none !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            -moz-transition-property: none !important;
+            -webkit-transition-property: none !important;
+            -o-transition-property: none !important;
+            transition-property: none !important;
+            transform: none !important;
+            -webkit-transform: none !important;
+            -ms-transform: none !important;
+            width: auto !important;
+            height: auto !important;
+            display: none !important;
+            z-index: 2000000000 !important;
+            background-color: transparent !important;
+            cursor: auto !important;
+            float: none !important;
+            border-radius: unset !important;
+        }
+
+        #o5OscGL-1553997009869.open {
+            animation: tawkMaxOpen .25s ease !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading"
+        style="position: absolute; width: 100%; height: 100%; background: url(&quot;/images/ajax-loader.gif&quot;) center center no-repeat rgba(0, 0, 0, 0.4); display: none;">
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div style="width:1250px;margin:0 auto;">
+            <div class="navbar-header">
+                <a href="/home/index"> <img
+                        src="/images/The_Startup_Buddy_social_with_name_transparent_background_horizontal.png"
+                        width="244" height="45" style="margin-top:0;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="linkdefault"><a href="/home/signin">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="termModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width:800px">
+            <!-- Modal content-->
+            <div class="modal-content" style="width:800px">
+                <div class="modal-header">
+                    Terms and Conditions
+                </div>
+                <div id="termDetails" class="modal-body">
+                    <p>Unfortunately some people don’t use the internet and websites like ours in the best interest of
+                        others. That is why below you find the Teur Pte. Ltd. / Investeur to legally protect us and
+                        yourself. The text doesn’t read like a good novel, but the intention is honest and we worked
+                        diligently to formulate it fairly and correctly. If we did not entirely succeed, please let us
+                        know via <u>info@investeur.co</u> so we can check and change in applicable cases.</p>
+                    <h2>TERMS AND CONDITIONS</h2>
+                    <ol>
+                        <li><b>Introduction</b></li>
+                    </ol>
+                    <p>These Terms and Conditions ("Terms", "Agreement" or “Terms and Conditions”) are an agreement
+                        between the operator of <u>www.investeur.co</u> ("Website operator", "us", "we" or "our") and
+                        you ("user", "you" or "your"). This Agreement sets forth the general Terms and Conditions of
+                        your use of the Website <u>www.investeur.co</u> and any of its products or services
+                        (collectively, "Website" or "Services").</p>
+                    <p>These Terms and Conditions written on this webpage shall manage your use of this website. These
+                        Terms will be applied fully and affect your use of this Website. By using this Website, you
+                        agree to accept all Terms and Conditions written in here. You must not use this Website if you
+                        disagree with any of these Terms and Conditions.</p>
+                    <p>You affirm that you are either more than 18 years of age, or possess legal parental or guardian
+                        consent, and are fully able and competent to enter into the terms, conditions, obligations,
+                        affirmations, representations, and warranties set forth in these Terms and Conditions, and to
+                        abide by and comply with these Terms and Conditions.</p>
+                    <p>Investeur is a web service built on the Sharetribe platform. The general terms of <u>Sharetribe
+                        </u>also apply to the users of the services offered via this Website.</p>
+
+                    <b>Intellectual Property Rights</b>
+                    <p>Other than the content you own, under these Terms, Teur Pte Ltd and/or its licensors own all the
+                        intellectual property rights and materials contained in this Website. You are granted limited
+                        license only for purposes of viewing and/or sharing with referring to this Website as the source
+                        the material. </p>
+                    <p>This Agreement does not transfer from Website operator to you, any Website operator or third
+                        party intellectual property, and all right, title, and interest in and to such property will
+                        remain (as between the parties) solely with Website operator. All trademarks, service marks,
+                        graphics and logos used in connection with our Website or Services, are trademarks or registered
+                        trademarks of Website operator or Website operator licensors. Other trademarks, service marks,
+                        graphics and logos used in connection with our Website or Services may be the trademarks of
+                        other third parties. Your use of our Website and Services grants you no right or license to
+                        reproduce or otherwise use any Website operator or third-party trademarks unless by clearly
+                        referring to this Website as the source.</p>
+
+                    <b>Accounts and membership</b>
+                    <p>If you create an account at the Website, you are responsible for maintaining the security of your
+                        account and you are fully responsible for all activities that occur under the account and any
+                        other actions taken in connection with it. Providing false contact information of any kind may
+                        result in the termination of your account. You must immediately notify us of any unauthorized
+                        uses of your account or any other breaches of security. We will not be liable for any acts or
+                        omissions by you, including any damages of any kind incurred as a result of such acts or
+                        omissions. We may suspend, disable, or delete your account (or any part thereof) if we determine
+                        that you have violated any provision of this Agreement or that your conduct or content would
+                        tend to damage our reputation and goodwill. If we delete your account for the foregoing reasons,
+                        you may not re-register for our Services. We may block your email address and Internet protocol
+                        address to prevent further registration.</p>
+                    <b>Removal of a user</b>
+                    <p>We reserve the right to remove any users from the Website and terminate their right of use of the
+                        service without any specific reason and without being liable for compensation.</p>
+                    <b>Website access</b>
+                    <p>You are responsible for all access to the Website using your internet connection, even if the
+                        access is by another person. </p>
+                    <p>No guarantees of the functioning of the Website service are given. The users are themselves
+                        responsible for their actions entering into services and they should estimate the reliability of
+                        other users before dealing with them. The Website operator can under no circumstances be liable
+                        for damage that is caused to the user. </p>
+                    <p>We make no promise that the materials on the Website are appropriate or available for use in
+                        locations outside Singapore. Accessing the Website from territories where its contents are
+                        illegal or unlawful is prohibited. If you choose to access the Website from elsewhere, you do so
+                        on your own initiative and are responsible for compliance with local laws and regulations. </p>
+                    <b>Restrictions</b>
+                    <p>You are restricted to</p>
+                    <ul class="small">
+                        <li>publish any Website material in any other media;</li>
+                        <li>sell, sublicense and/or otherwise commercialize any Website material;</li>
+                        <li>publicly perform and/or show any Website material;</li>
+                    </ul>
+                    <p>unless </p>
+                    <ul class="small">
+                        <li>you share the materials in support of the Website;</li>
+                        <li>your sharing does not harm the Website or its users in any way;</li>
+                        <li>you inform us prior to using the materials in case you are not certain and we provide
+                            specific approval.</li>
+                    </ul>
+                    <p>You are restricted to</p>
+                    <ul class="small">
+                        <li>use this Website in any way that is or may be damaging to this Website;</li>
+                        <li>use this Website in any way that impacts user access to this Website;</li>
+                        <li>use this Website contrary to applicable laws and regulations, or in any way may cause harm
+                            to the Website, or to any person or business entity;</li>
+                        <li>to engage in any data mining, data harvesting, data extracting or any other similar activity
+                            in relation to this Website unless specific approval has been granted by us in writing.</li>
+                    </ul>
+                    <p>You agree that you will not: </p>
+                    <ul class="small">
+                        <li>Use the Website for any fraudulent or unlawful purpose or solicit others to perform or
+                            participate in any unlawful acts; </li>
+                        <li>Violate any international, federal, provincial or state regulations, rules, laws, or local
+                            ordinances; </li>
+                        <li>Infringe upon or violate our intellectual property rights or the intellectual property
+                            rights of others;</li>
+                        <li>Use the Website to defame, abuse, harass, stalk, threaten or otherwise violate the rights of
+                            others, including without limitation others’ privacy rights or rights of publicity; </li>
+                        <li>Impersonate any person or entity, false state or otherwise misrepresent your affiliation
+                            with any person or entity in connection with the Website or express or imply that we endorse
+                            any statement you make; </li>
+                        <li>Interfere with or disrupt the operation of the Website or the servers or networks used to
+                            make the Website available or violate any requirements, procedures, policies or regulations
+                            of such networks. </li>
+                    </ul>
+                    <p>Certain areas of this Website may be restricted from being accessed by you. Teur Pte Ltd may
+                        further restrict access by you to any areas of this Website, at any time, in absolute
+                        discretion. Any user ID and password you may have for this Website are confidential and you must
+                        maintain confidentiality as well.</p>
+                    <b>Third party websites</b>
+                    <p>The Website does provide links to other websites and online resources. Although this Website may
+                        be linked to other websites, we are not, directly or indirectly, implying any approval,
+                        association, sponsorship, endorsement, or affiliation with any linked website, unless
+                        specifically stated herein. We are not responsible for examining or evaluating, and we do not
+                        warrant the offerings of, any businesses or individuals or the content of their websites. We do
+                        not assume any responsibility or liability for the actions, products, services and content of
+                        any other third parties. You should carefully review the legal statements and other conditions
+                        of use of any website which you access through a link from this Website. Your linking to any
+                        other off-site pages or other websites is at your own risk.</p>
+                    <p>You may create a link to this Website, provided that the link is fair and legal and is not
+                        presented in a way that is:</p>
+                    <ul class="small">
+                        <li>Misleading or could suggest any type of association, approval or endorsement by us that does
+                            not exist, or </li>
+                        <li>Harmful to our reputation or the reputation of any of our affiliates;</li>
+                    </ul>
+                    <p>We reserve the right to require you to immediately remove any link to the Website at any time and
+                        you shall immediately comply with any request by us to remove any such link.</p>
+                    <b>Other relevant terms and policies</b>
+                    <p>On this and all other websites run by Teur Pte. Ltd. / Investeur other relevant terms are:</p>
+                    <ul class="small">
+                        <li>Privacy Policy - To be found at <u>www.investeur.co/terms</u></li>
+                        <li>Non disclosure agreement - To be found at <u>www.investeur.co/terms</u></li>
+                        <li>Transaction agreement - You will be asked to read and acknowledge this agreement when you
+                            are buying a third party service through any of our websites. It clarifies that you are
+                            aware Teur Pte. Ltd. is not the selling party.</li>
+                    </ul>
+                    <b>Your Content</b>
+                    <p>In these Terms and Conditions, “Your Content” shall mean any audio, video text, images or other
+                        material you choose to display on this Website. </p>
+                    <p>We may, but have no obligation to, monitor Content on the Website submitted or created using our
+                        Services by you. By displaying Your Content, you grant Teur Pte Ltd a non-exclusive, worldwide
+                        irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute
+                        it in any and all media.</p>
+                    <p>Your Content must be your own and must not be invading any third-party’s rights. Teur Pte Ltd
+                        reserves the right to remove any of Your Content from this Website at any time without notice.
+                    </p>
+                    <p>We have the right, though not the obligation, to, in our own sole discretion, refuse, change or
+                        remove any Content that, in our reasonable opinion, violates any of our policies or is in any
+                        way harmful or objectionable for the Website or other our users.</p>
+                    <b>Backups</b>
+                    <p>We perform regular backups of the Website and Content and will do our best to ensure completeness
+                        and accuracy of these backups. In the event of the hardware failure or data loss we will restore
+                        backups automatically to minimize the impact and downtime.</p>
+                    <b>Limitation of liability</b>
+                    <p>In no event shall Teur Pte Ltd, nor any of its officers, directors and employees, be held liable
+                        for anything arising out of or in any way connected with your use of this Website whether such
+                        liability is under contract. Teur Pte Ltd, including its officers, directors and employees shall
+                        not be held liable for any indirect, consequential or special liability arising out of or in any
+                        way related to your use of this Website.</p>
+                    <b>Indemnification</b>
+                    <p>You agree to indemnify and hold Website operator and its affiliates, directors, officers,
+                        employees, and agents harmless from and against any liabilities, losses, damages or costs,
+                        including reasonable attorneys' fees, incurred in connection with or arising from any
+                        third-party allegations, claims, actions, disputes, or demands asserted against any of them as a
+                        result of or relating to your Content, your use of the Website or Services or any willful
+                        misconduct on your part including breach of any of the provisions of these Terms.</p>
+                    <b>Severability</b>
+                    <p>If any provision of these Terms is found to be invalid under any applicable law, such provisions
+                        shall be deleted without affecting the remaining provisions herein.</p>
+                    <b>Changes and amendments</b>
+                    <p>Teur Pte Ltd is permitted to revise these Terms at any time as it sees fit, and by using this
+                        Website you are expected to review these Terms on a regular basis.We reserve the right to modify
+                        this Agreement or its policies relating to the Website or Services at any time, effective upon
+                        posting of an updated version of this Agreement on the Website. When we do we will revise the
+                        updated date at the bottom of this page. Continued use of the Website after any such changes
+                        shall constitute your consent to such changes. </p>
+                    <b>Assignment</b>
+                    <p>Teur Pte Ltd is allowed to assign, transfer, and subcontract its rights and/or obligations under
+                        these Terms without any notification. However, you are not allowed to assign, transfer, or
+                        subcontract any of your rights and/or obligations under these Terms.</p>
+                    <b>Entire Agreement</b>
+                    <p>These Terms constitute the entire agreement between Teur Pte Ltd and you in relation to your use
+                        of this Website, and supersede all prior agreements and understandings.</p>
+                    <b>Acceptance of these terms</b>
+                    <p>You acknowledge that you have read this Agreement and agree to all its terms and conditions. By
+                        using the Website or its Services you agree to be bound by this Agreement. If you do not agree
+                        to abide by the terms of this Agreement, you are not authorized to use or access the Website and
+                        its Services.</p>
+                    <b>Governing Law &amp; Jurisdiction</b>
+                    <p>These Terms will be governed by and interpreted in accordance with the laws of the State of
+                        Singapore, and you submit to the non-exclusive jurisdiction of the state and federal courts
+                        located in Singapore for the resolution of any disputes.</p>
+                    <b>Contacting us</b>
+                    <p>If you have any questions about this Policy, please contact us under info@investeur.co. This
+                        document was last updated on March 2018</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width:1250px;padding-top:100px;margin:0 auto;">
+        <div style="float:left;">
+            <img src="/images/signup_banner_left.png"
+                width="730px">
+        </div>
+
+        <div id="signup" style="display:block;float:left;width:480px;text-align:center;margin-top:40px;">
+            <a href="/FBAccount/facebook">
+                <img border="0" alt="FBlogin"
+                    src="/images/connect_facebook.png"
+                    width="475">
+            </a>
+            <div class="row" style="padding-top:15px;">
+                <a href="/LiAccount/linkin">
+                    <img border="0" alt="Linkinlogin"
+                        src="/images/connect_linkedin.png"
+                        width="475">
+                </a>
+            </div>
+            <img border="0" alt="or"
+                src="/images/login_line_or.png"
+                width="475">
+
+            <form id="registerform" action="javascript:void(0);">
+                <div style="text-align:left;">
+                    <div class="row" style=" padding-top:20px; padding-left:16px;">
+                        <div style="float:left;"><input type="text" class="rectangle-field-short" id="firstname"
+                                placeholder="First Name" value="" onfocus="//this.value = '';"
+                                onblur="//if (this.value == '') {this.value = 'First Name';}" required=""></div>
+                        <div style="float:left;margin-left:30px;"><input type="text" class="rectangle-field-short"
+                                id="lastname" placeholder="Last Name" onfocus="//this.value = '';"
+                                onblur="//if (this.value == '') {this.value = 'Last Name';}" required=""></div>
+
+                    </div>
+                    <div class="row" style=" padding-top:20px; padding-left:16px;">
+
+                        <input type="email" class="rectangle-field" id="email" value="" placeholder="Email"
+                            onfocus="//if (this.value == 'your@email.com') { this.value = ''; }"
+                            onblur="//if (this.value == '') { this.value = 'your@email.com '; }" required="">
+                    </div>
+                    <input type="hidden" id="areacode" value="">
+                    <input type="hidden" id="phone" value="">
+                    <!--  <div style="color:gray;font-size:small;">*Phone number with country code, for example +659876532</div>
+        <br />-->
+                    <!--
+        Company Name<br />
+        <input type="text" class="text" id="company" value="" onfocus="//if (this.value == 'Company Name') { this.value = ''; }" onblur="//if (this.value == '') { this.value = 'Company Name '; }" required>
+        Company Registration No.<br />
+        <input type="text" class="text" id="registrationno" value="" onfocus="//this.value = '';" onblur="//if (this.value == '') {this.value = 'Company Registration No. ';}" required>
+        -->
+                    <div class="row" style=" padding-top:20px; padding-left:16px;">
+                        <input type="password" class="rectangle-field" placeholder="Password" value="" id="password"
+                            pattern=".{8,}" title="Please use a password of at least 8 characters"
+                            onfocus="//if (this.value == 'password') { this.value = ''; }"
+                            onblur="//    if (this.value == '') { this.value = 'Password '; }" required="">
+                    </div>
+                    <div class="row" style="padding-left:16px;padding-top:4px;">
+
+                        <div style="color:gray;font-size:small;"> *Please use a password of at least 8 characters</div>
+                    </div>
+                    <div class="row" style=" padding-left:16px;padding-top:4px;">
+                        <input type="password" class="rectangle-field" value="" placeholder="Confirm Password"
+                            id="confirmpassword" oninput="checkpwd(this)"
+                            onfocus="//if (this.value == 'password') { this.value = ''; }"
+                            onblur="// if (this.value= ='' ) { this.value='Password ' ; }" required="">
+                    </div>
+                    <div class="row" style=" padding-top:20px; padding-left:16px;text-align:center;">
+                        <input type="submit" id="submit" class="rectangle-submit" onclick="" value="Get Started!">
+                    </div>
+                    <div class="row" style=" padding-top:15px; padding-left:13px;text-align:center;">
+                        <span class="agree">By creating an account, you agree to our <span class="term"><a
+                                    href="javascript:$('#termModal').modal();" id="myBtn">Terms &amp;
+                                    Conditions</a></span></span>
+                    </div>
+
+                    <div id="recaptcha" class="g-recaptcha" data-sitekey="6Lc7JiwUAAAAANZ566P9KAv8qyKoaTIfhcb5UCAw"
+                        data-callback="onSubmit" data-size="invisible">
+                        <div class="grecaptcha-badge" data-style="bottomright"
+                            style="width: 256px; height: 60px; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px;">
+                            <div class="grecaptcha-logo"><iframe
+                                    src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc7JiwUAAAAANZ566P9KAv8qyKoaTIfhcb5UCAw&amp;co=aHR0cHM6Ly90aGVzdGFydHVwYnVkZHkuY286NDQz&amp;hl=en&amp;v=v1552285980763&amp;size=invisible&amp;cb=8rsw1fjzimxh"
+                                    width="256" height="60" role="presentation" name="a-9tzowk2sxlgx" frameborder="0"
+                                    scrolling="no"
+                                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+                            </div>
+                            <div class="grecaptcha-error"></div><textarea id="g-recaptcha-response"
+                                name="g-recaptcha-response" class="g-recaptcha-response"
+                                style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                        </div>
+                    </div>
+
+
+
+                    <div class="clear"> </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div id="verification" style="display:none">
+        <div class="main">
+
+            <h2>Please check your email for verification code</h2>
+            <form id="form2" action="javascript:void(0);">
+                <div class="lable-2">
+                    Verification Code <br>
+                    <input type="text" class="text" id="verificationcode" value=""
+                        onfocus="//if (this.value == 'Verification Code') { this.value = ''; }"
+                        onblur="//    if (this.value == '') { this.value = 'Verification Code '; }" required="">
+                </div>
+                <h3>Please check your spam folder if you did not find the verification email</h3>
+
+                <div class="submit">
+                    <input type="submit" id="verify" onclick="" value="Submit">
+                </div>
+                <div class="clear"> </div>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        function checkpwd(input) {
+            if (input.value != document.getElementById('password').value) {
+                input.setCustomValidity('Password Must be Matching.');
+            } else {
+                // input is valid -- reset the error message
+                input.setCustomValidity('');
+            }
+        }
+
+        var loading = document.getElementById("loading");
+        loading.style.display = 'none';
+
+
+        var createAllErrors = function () {
+            var form = $(this),
+                errorList = $("ul.errorMessages", form);
+
+            var showAllErrorMessages = function () {
+
+                errorList.empty();
+
+                // Find all invalid fields within the form.
+                var invalidFields = form.find(":invalid").each(function (index, node) {
+
+                    // Find the field's corresponding label
+                    var label = $("label[for=" + node.id + "] "),
+                        // Opera incorrectly does not fill the validationMessage property.
+                        message = node.validationMessage || 'Invalid value.';
+
+                    errorList
+                        .show()
+                        .append("<li><span>" + label.html() + "</span> " + message + "</li>");
+                });
+
+            };
+
+            // Support Safari
+            form.on("submit", function (event) {
+                if (this.checkValidity && !this.checkValidity()) {
+                    $(this).find(":invalid").first().focus();
+                    event.preventDefault();
+
+                }
+            });
+
+            $("input[type=submit], button:not([type=button])", form)
+                .on("click", showAllErrorMessages);
+
+            $("input", form).on("keypress", function (event) {
+                var type = $(this).attr("type");
+                if (/date|email|month|number|search|tel|text|time|url|week/.test(type)
+                    && event.keyCode == 13) {
+                    showAllErrorMessages();
+                }
+            });
+        };
+        // $("form").each(createAllErrors);
+        var btnSubmit = document.getElementById("submit");
+        var registerform = document.getElementById("registerform");
+        var username = "";
+
+        // btnSubmit.onclick = function () {
+        registerform.onsubmit = function () {
+            event.preventDefault();
+            grecaptcha.execute();
+            return false;
+        }
+
+        var btnVerify = document.getElementById("verify");
+        var form2 = document.getElementById("form2");
+
+        //  btnVerify.onclick = function () {
+        form2.onsubmit = function () {
+            loading.style.display = 'block';
+            AWSVerify();
+        }
+    </script>
+    <script>
+        function onSubmit(token) {
+            loading.style.display = 'block';
+
+            AWSSignup();
+        }
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/595a0c2550fd5105d0c83a65/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <div
+        style="visibility: hidden; position: absolute; width: 100%; top: -10000px; left: 0px; right: 0px; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0;">
+        <div
+            style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.5;">
+        </div>
+        <div
+            style="margin: 0px auto; top: 0px; left: 0px; right: 0px; position: absolute; border: 1px solid rgb(204, 204, 204); z-index: 2000000000; background-color: rgb(255, 255, 255); overflow: hidden;">
+            <iframe title="recaptcha challenge"
+                src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=v1552285980763&amp;k=6Lc7JiwUAAAAANZ566P9KAv8qyKoaTIfhcb5UCAw&amp;cb=wmqo2xncn3w2"
+                name="c-9tzowk2sxlgx" frameborder="0" scrolling="no"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+                style="width: 100%; height: 100%;"></iframe></div>
+    </div><iframe src="about:blank" title="chat widget logging" style="display: none !important;"></iframe><iframe
+        src="about:blank" title="chat widget logging" style="display: none !important;"></iframe>
+    <div id="ZkyK1It-1553997009867" class="" style="display: block !important;"><iframe id="o5OscGL-1553997009869"
+            src="about:blank" frameborder="0" scrolling="no" title="chat widget" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: auto !important; right: auto !important; bottom: auto !important; left: auto !important; position: static !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 280px !important; height: 330px !important; z-index: 999999 !important; cursor: auto !important; float: none !important; border-radius: unset !important; display: none !important;"></iframe><iframe
+            id="GV7h1Es-1553997009870" src="about:blank" frameborder="0" scrolling="no" title="chat widget" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; position: fixed !important; border: 0px !important; padding: 0px !important; transition-property: none !important; z-index: 1000001 !important; cursor: auto !important; float: none !important; height: 40px !important; min-height: 40px !important; max-height: 40px !important; width: 320px !important; min-width: 320px !important; max-width: 320px !important; border-radius: 0px !important; transform: rotate(0deg) translateZ(0px) !important; transform-origin: 0px center !important; margin: 0px !important; top: auto !important; bottom: 0px !important; left: 10px !important; right: auto !important; display: block !important;"></iframe><iframe
+            id="KS1GeD1-1553997009870" src="about:blank" frameborder="0" scrolling="no" title="chat widget" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; position: fixed !important; border: 0px !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; display: none !important; z-index: 1000003 !important; cursor: auto !important; float: none !important; border-radius: unset !important; top: auto !important; bottom: 25px !important; left: 314px !important; right: auto !important; width: 21px !important; max-width: 21px !important; min-width: 21px !important; height: 21px !important; max-height: 21px !important; min-height: 21px !important;"></iframe>
+        <div class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: auto !important; bottom: auto !important; left: 0px !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 100% !important; height: 100% !important; display: none !important; z-index: 1000001 !important; cursor: move !important; float: left !important; border-radius: unset !important;">
+        </div>
+        <div id="C2PKdHY-1553997009867" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: auto !important; bottom: auto !important; left: 0px !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 6px !important; height: 100% !important; display: block !important; z-index: 999998 !important; cursor: w-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="tymvSRJ-1553997009867" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: 0px !important; bottom: auto !important; left: auto !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 6px !important; height: 100% !important; display: block !important; z-index: 999998 !important; cursor: e-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="pEZVcYU-1553997009867" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: 0px !important; bottom: auto !important; left: auto !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 100% !important; height: 6px !important; display: block !important; z-index: 999998 !important; cursor: n-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="aeQymH2-1553997009867" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: auto !important; right: 0px !important; bottom: 0px !important; left: auto !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 100% !important; height: 6px !important; display: block !important; z-index: 999998 !important; cursor: s-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="nRcS5my-1553997009868" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: auto !important; bottom: auto !important; left: 0px !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 12px !important; height: 12px !important; display: block !important; z-index: 999998 !important; cursor: nw-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="v5f2Kky-1553997009868" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: 0px !important; right: 0px !important; bottom: auto !important; left: auto !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 12px !important; height: 12px !important; display: block !important; z-index: 999998 !important; cursor: ne-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="yh2Ido9-1553997009868" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: auto !important; right: auto !important; bottom: 0px !important; left: 0px !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 12px !important; height: 12px !important; display: block !important; z-index: 999998 !important; cursor: sw-resize !important; float: none !important; border-radius: unset !important;">
+        </div>
+        <div id="s3QYiJz-1553997009868" class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: auto !important; right: 0px !important; bottom: 0px !important; left: auto !important; position: absolute !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 12px !important; height: 12px !important; display: block !important; z-index: 999999 !important; cursor: se-resize !important; float: none !important; border-radius: unset !important;">
+        </div><iframe id="DroY1kP-1553997009920" src="about:blank" frameborder="0" scrolling="no" title="chat widget"
+            class=""
+            style="outline: none !important; visibility: visible !important; resize: none !important; box-shadow: none !important; overflow: visible !important; background: none transparent !important; opacity: 1 !important; top: auto !important; right: 10px !important; bottom: 50px !important; left: auto !important; position: fixed !important; border: 0px !important; min-height: auto !important; min-width: auto !important; max-height: none !important; max-width: none !important; padding: 0px !important; margin: 0px !important; transition-property: none !important; transform: none !important; width: 378px !important; height: 592px !important; display: none !important; z-index: 999999 !important; cursor: auto !important; float: none !important; border-radius: unset !important;"></iframe>
+    </div><iframe src="about:blank" title="chat widget logging" style="display: none !important;"></iframe>
+</body>
+
+</html>
