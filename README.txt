@@ -6,4 +6,4 @@ Notes:
 Known limitations
 - Portrait and landscape device layout are same
 - I couldn't make portrait and landscape layout to be different layout,
-  because Bootstrap 3.3.7 (from base code version) doesn't landscape layout.
+  because Bootstrap 3.3.7 (from base code version) doesn't have a landscape layout.
